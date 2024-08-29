@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPlayer Video Example</title>
+</head>
+<body>
+    <!-- Video Player Container -->
+    <div id="oplayer" style="width: 100%; max-width: 800px; margin: auto;"></div>
+
+    <!-- Include OPlayer's core and UI libraries via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@oplayer/full@latest/dist/index.min.js"></script>
+
+    <!-- Initialize OPlayer -->
+    <script>
+        // Create a player instance
+        const player = OPlayer.make('#oplayer', {
+            source: {
+                title: 'My Video',
+                src: 'https://files.live98.ir/test/insideout2.mkv', // The URL of your video
+                poster: '', // Optional poster image
+            },
+            preload: 'auto',
+            autoplay: false,
+            muted: false,
+            loop: false,
+        }).use([
+            OUI({
+                subtitle: {
+                    source: [
+                        {
+                            name: 'Persian Subtitle',
+                            default: true,
+                            src: 'https://cdn.jsdelivr.net/gh/Adib-Naseri/subtitles@main/subtitles.vtt', // Path to your subtitle file
+                            offset: 0 // Adjust if needed
+                        }
+                    ]
+                }
+            })
+        ]).create();
+    </script>
+</body>
+</html>
